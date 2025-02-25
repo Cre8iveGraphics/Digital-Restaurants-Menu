@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hotel Raj - Digital Menu</title>
+  <style>
+    /* General Styles */
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #1a1a1a, #000);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      color: #fff;
+    }
+
+    .container {
+      text-align: center;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 2.5rem;
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      max-width: 400px;
+      width: 100%;
+      margin: 1rem;
+      animation: fadeIn 1s ease-in-out;
+      position: relative;
+    }
+
+    .shop-name {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+      color: #fff;
+      text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc, 0 0 40px #00ffcc;
+      animation: glow 2s infinite alternate;
+    }
+
+    .menu-card {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      padding: 20px;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .menu-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .menu-card img {
+      width: 100%;
+      border-radius: 10px;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .footer {
+      margin-top: 1.5rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .footer strong {
+      color: #00ffcc;
+      font-weight: 600;
+    }
+
+    .social-media-icons {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin: 1rem 0;
+    }
+
+    .social-media-icons a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      color: #fff;
+      transition: transform 0.3s ease;
+    }
+
+    .social-media-icons a:hover {
+      transform: scale(1.1);
+    }
+
+    .social-media-icons img {
+      width: 40px;
+      height: 40px;
+      filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+    }
+
+    .social-media-icons span {
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes glow {
+      0% {
+        text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc, 0 0 40px #00ffcc;
+      }
+      100% {
+        text-shadow: 0 0 20px #00ffcc, 0 0 40px #00ffcc, 0 0 80px #00ffcc;
+      }
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <!-- Restaurant Branding -->
+    <h1 class="shop-name">Hotel Raj</h1>
+
+    <!-- Menu Card -->
+    <div class="menu-card" id="menu-card">
+      <img src="menu.jpg" alt="Hotel Raj Menu">
+    </div>
+
+    <!-- Footer with Hamari Branding -->
+    <div class="footer">
+      <div class="social-media-icons">
+        <a href="https://www.instagram.com/cre8ive_graphics/" target="_blank">
+          <img src="instagram.png" alt="Instagram">
+          <span>Instagram</span>
+        </a>
+        <a href="https://www.facebook.com/Cre8iveGraphic/" target="_blank">
+          <img src="facebook.png" alt="Facebook">
+          <span>Facebook</span>
+        </a>
+        <a href="https://cre8ivegraphics.github.io/Cre8ive_Graphics/" target="_blank">
+          <img src="website.png" alt="Website">
+          <span>Website</span>
+        </a>
+      </div>
+      <p>Powered by <strong>Cre8ive Graphics</strong> | Contact: <strong>9284969878</strong></p>
+    </div>
+  </div>
+
+  <!-- Audio Element -->
+  <audio id="greeting-audio" muted>
+    <source src="greeting.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    // Auto-play greeting audio on user interaction
+    document.addEventListener('click', function() {
+      const audio = document.getElementById('greeting-audio');
+      audio.muted = false; // Unmute the audio
+      audio.play().catch(error => {
+        console.log("Autoplay was prevented. Please interact with the page to play the audio.");
+      });
+    });
+
+    // Play audio on menu card click
+    document.getElementById('menu-card').addEventListener('click', function() {
+      const audio = document.getElementById('greeting-audio');
+      audio.muted = false; // Unmute the audio
+      audio.play().catch(error => {
+        console.log("Autoplay was prevented. Please interact with the page to play the audio.");
+      });
+    });
+  </script>
+</body>
+</html>
